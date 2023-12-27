@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   padding: 5px;
 `;
 
-export const Title = styled.div`
+export const Title = styled.div<{ $completed: boolean }>`
   text-align: left;
+  color: ${(props) => (props.$completed ? "#c0c2c0" : "#000000")};
+  text-decoration: ${(props) => props.$completed && "line-through"};
+  font-size: 15px;
+  transition: all 0.2s;
 `;

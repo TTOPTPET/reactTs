@@ -22,6 +22,7 @@ function App() {
       gettedTodos.push(JSON.parse(localStorage.getItem(key!) || "{}"));
     }
     setTodos(gettedTodos.sort((a, b) => a.id - b.id));
+    setOffset(localStorage.length);
   };
 
   const fetchTodos = () => {
@@ -34,7 +35,6 @@ function App() {
           return { title: item.title, completed: item.completed, id: item.id };
         });
         setStorage(data || []);
-        setOffset((offset) => offset + 10);
         getTodos();
       });
   };
